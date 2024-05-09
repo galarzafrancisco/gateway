@@ -1,0 +1,26 @@
+kind: HTTPRoute
+apiVersion: gateway.networking.k8s.io/v1beta1
+metadata:
+  name: app-1-something-v1-0-0
+  namespace: app-1
+spec:
+  parentRefs:
+  - kind: Gateway
+    name: external-http
+    namespace: gateway
+  hostnames:
+  - "app-1.gateway.american-broomstick.com"
+  rules:
+  - matches:
+    - path:
+        type: PathPrefix
+        value: /v1.0.0
+    filters:
+    - urlRewrite:
+        type: ReplacePrefixMatch
+        replacePrefixMatch: /
+    backendRefs:
+    - kind: Service
+      name: something-v1-0-0
+      namespace: app-1
+      port: 8080
