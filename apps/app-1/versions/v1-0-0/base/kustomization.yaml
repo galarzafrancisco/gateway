@@ -6,8 +6,8 @@ resources:
   - service.yaml
   - route-version.yaml
 configMapGenerator:
-  - name: html-v1-0-0
+  - name: index-v1-0-0
     files:
-      - html-v1-0-0.html
+      - index.html
 generatorOptions:
   disableNameSuffixHash: true
