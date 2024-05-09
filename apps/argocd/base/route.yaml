@@ -7,8 +7,9 @@ spec:
   parentRefs:
   - kind: Gateway
     name: external-http
+    namespace: gateway
   hostnames:
-  - "argocd.up.american-broomstick.com"
+  - "argocd.american-broomstick.com"
   rules:
   - backendRefs:
     - name: argocd-server
