@@ -1,0 +1,33 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: app-1-versions
+  namespace: argocd
+  # finalizers:
+  #   - resources-finalizer.argocd.argoproj.io
+spec:
+  generators:
+    - git:
+        repoURL: https://github.com/galarzafrancisco/gateway.git
+        revision: main
+        directories:
+          - path: 'apps/app-1/versions/*'
+  template:
+    metadata:
+      name: 'app-1-{{path.basename}}'
+    spec:
+      project: app-1
+      source:
+        repoURL: https://github.com/galarzafrancisco/gateway.git
+        targetRevision: main
+        path: '{{path}}/overlays/main'
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: app-1
+      syncPolicy:
+        automated:
+          selfHeal: true
+          prune: true
+        syncOptions:
+          - CreateNamespace=true

@@ -1,0 +1,38 @@
+# Basic nginx hello world
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: something-v1.0.0
+  namespace: app-1
+  labels:
+    app: app-1
+    version: v1.0.0
+    deployment: something
+spec:
+  selector:
+    matchLabels:
+      app: app-1
+      version: v1.0.0
+      deployment: something
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: app-1
+        version: v1.0.0
+        deployment: something
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:alpine
+          imagePullPolicy: Always
+          ports: 
+            - containerPort: 8080
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "64Mi"
+            limits:
+              cpu: "250m"
+              memory: "256Mi"
