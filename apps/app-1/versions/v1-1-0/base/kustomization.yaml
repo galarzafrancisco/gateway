@@ -5,6 +5,9 @@ resources:
   - deployment.yaml
   - service.yaml
   - route-version.yaml
-
-
-
+configMapGenerator:
+  - name: index-v1-1-0
+    files:
+      - index.html
+generatorOptions:
+  disableNameSuffixHash: true
