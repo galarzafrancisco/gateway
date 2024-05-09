@@ -28,6 +28,8 @@ gcloud beta container \
   --node-locations "australia-southeast1-a" \
   --zone "australia-southeast1-a"
 
+# Configure kubectl
+gcloud container clusters get-credentials blob-1 --zone australia-southeast1-a --project gateway-422801
 
 # Autopilot cluster
 # gcloud beta container \

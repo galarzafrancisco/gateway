@@ -20,7 +20,7 @@ spec:
       source:
         repoURL: https://github.com/galarzafrancisco/gateway.git
         targetRevision: main
-        path: '{{path.basename}}/overlays/main'
+        path: '{{path}}/overlays/main'
       destination:
         server: https://kubernetes.default.svc
         namespace: '{{path.basename}}'

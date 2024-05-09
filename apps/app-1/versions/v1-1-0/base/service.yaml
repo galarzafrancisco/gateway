@@ -2,16 +2,16 @@
 kind: "Service"
 apiVersion: "v1"
 metadata:
-  name: something-v1.1.0
+  name: something-v1-1-0
   namespace: app-1
   labels:
     app: app-1
-    version: v1.1.0
+    version: v1-1-0
     deployment: something
 spec:
   selector:
     app: app-1
-    version: v1.1.0
+    version: v1-1-0
     deployment: something
   ports:
     - name: "webserver"
