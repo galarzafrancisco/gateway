@@ -16,9 +16,11 @@ spec:
         type: PathPrefix
         value: /v1.0.0
     filters:
-    - urlRewrite:
-        type: ReplacePrefixMatch
-        replacePrefixMatch: /
+    - type: URLRewrite
+      urlRewrite:
+        path:
+          type: ReplacePrefixMatch
+          replacePrefixMatch: /
     backendRefs:
     - kind: Service
       name: something-v1-0-0
