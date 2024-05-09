@@ -24,15 +24,23 @@ spec:
         deployment: something
     spec:
       containers:
-        - name: nginx
-          image: nginx:alpine
-          imagePullPolicy: Always
-          ports: 
-            - containerPort: 80 # default nginx
-          resources:
-            requests:
-              cpu: "100m"
-              memory: "64Mi"
-            limits:
-              cpu: "250m"
-              memory: "256Mi"
+      - name: nginx
+        image: nginx:alpine
+        imagePullPolicy: Always
+        ports: 
+        - containerPort: 80 # default nginx
+        volumeMounts:
+        - name: html-v1-0-0
+          mountPath: /usr/share/nginx/html
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "64Mi"
+          limits:
+            cpu: "250m"
+            memory: "256Mi"
+      volumes:
+      - name: html-v1-0-0
+        configMap:
+          name: html-v1-0-0
+
