@@ -9,7 +9,7 @@ spec:
     name: external-http
     namespace: gateway
   hostnames:
-  - "argocd.american-broomstick.com"
+  - "argocd.gateway.american-broomstick.com"
   rules:
   - backendRefs:
     - name: argocd-server
