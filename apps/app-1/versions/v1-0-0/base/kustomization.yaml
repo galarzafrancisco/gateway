@@ -9,3 +9,5 @@ configMapGenerator:
   - name: html-v1-0-0
     files:
       - html-v1-0-0.html
+generatorOptions:
+  disableNameSuffixHash: true
