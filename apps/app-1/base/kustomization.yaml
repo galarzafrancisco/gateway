@@ -4,3 +4,4 @@ resources:
   - project.yaml
   - versions.yaml
   - route-default.yaml
+  - route-weighted.yaml
