@@ -3,7 +3,8 @@ kind: Kustomization
 
 resources:
 - ./namespace.yaml
-# - ./ingress.yaml
+- ./gateway.yaml
+- ./route.yaml
 - https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 
 patchesStrategicMerge:

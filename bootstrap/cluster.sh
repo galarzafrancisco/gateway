@@ -8,6 +8,7 @@
 gcloud beta container \
   --project "gateway-422801" \
   clusters create "blob-1" \
+  --gateway-api=standard \
   --no-enable-basic-auth \
   --cluster-version "1.28.7-gke.1026000" \
   --release-channel "regular" \
