@@ -5,7 +5,3 @@ resources:
   - deployment.yaml
   - service.yaml
   - route-version.yaml
-  - route-default.yaml
-
-
-
